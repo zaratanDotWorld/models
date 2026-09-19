@@ -14,8 +14,8 @@ This repository currently contains the initial product and architecture specific
 Blender scenes, modeling scripts, and an export pipeline have not been implemented here.
 The existing Sage prototype lives in the website repository.
 
-The proposed first feature is a detailed reconstruction of the connected living and dining rooms.
-Its scope and implementation plan will be written before modeling begins.
+The first feature is scoped as a detailed reconstruction of the connected living and dining rooms, including photo comparisons and a two-room website preview.
+Its [specification](features/01-sage-living-dining/spec.md) and [implementation plan](features/01-sage-living-dining/plan.md) are ready for review; modeling has not started.
 
 ## Documentation and development
 
@@ -24,7 +24,7 @@ Its scope and implementation plan will be written before modeling begins.
 - `features/<NN>-<name>/spec.md`: a bounded feature's outcome, scope, design, and acceptance criteria.
 - `features/<NN>-<name>/plan.md`: implementation chunks, dependencies, progress, and verification evidence.
 
-The `features/` layout follows CorollaryStudio and will be created with the first feature.
+The `features/` layout follows CorollaryStudio.
 Feature directories are numbered in the order work begins.
 
 Use the installed `/development-workflow` skill to define, plan, implement, review, and close features.
