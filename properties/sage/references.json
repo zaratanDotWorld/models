@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "reference_root_env": "SAGE_REFERENCE_ROOT",
+  "target_arrangement": "personal-2023",
+  "references": [
+    {
+      "path": "photos/house/living.JPG",
+      "sha256": "a4f94b906aecceea13a7b906e0062199243b06190b73d26f0f8d156cdc5d1505",
+      "encoded_pixels": [4032, 3024],
+      "display_orientation": "portrait from EXIF rotation",
+      "rooms": ["living"],
+      "role": "primary comparison",
+      "arrangement": "personal-2023",
+      "camera": "ref_living_primary",
+      "comparison_exclusions": ["No movable furniture is excluded from this primary arrangement comparison."],
+      "lens_evidence": "EXIF iPhone 13 Pro ultra-wide, 1.57 mm focal length, 13 mm 35 mm equivalent; starting projection only",
+      "matched_projection": {"location_m": [7.55, 4.98, 1.58], "target_m": [7.48, 0.82, 1.02], "vertical_fov_degrees": 108, "render_pixels": [960, 1280]},
+      "observations": [
+        "Shows the front and side windows, willow-and-bird wallpaper, red sofa, record shelving, rug, coffee table, armchair, leather pouf, stained-glass screen, curtains, and dark wood floor.",
+        "The camera faces the exterior-window corner from near the dining opening."
+      ]
+    },
+    {
+      "path": "photos/house/dining.JPG",
+      "sha256": "b17e23c1c64414502a2b2405021395650d9d374d904c0d6f2ae1aa9d9fe64bff",
+      "encoded_pixels": [4032, 3024],
+      "display_orientation": "portrait from EXIF rotation",
+      "rooms": ["dining"],
+      "role": "primary comparison",
+      "arrangement": "personal-2023",
+      "camera": "ref_dining_primary",
+      "comparison_exclusions": ["No movable furniture is excluded from this primary arrangement comparison."],
+      "lens_evidence": "EXIF iPhone 13 Pro ultra-wide, 1.57 mm focal length, 13 mm 35 mm equivalent; starting projection only",
+      "matched_projection": {"location_m": [6.30, 5.20, 1.55], "target_m": [9.5884, 7.4770, 0.5527], "vertical_fov_degrees": 107, "render_pixels": [960, 1280]},
+      "observations": [
+        "Shows the glazed oak cabinet, wood paneling, ochre wallpaper, table and benches, chandelier, side windows, curtains, and dark wood floor.",
+        "The camera faces the side windows and cabinet from near the living opening."
+      ]
+    },
+    {
+      "path": "photos/top-360/215-N-Ave-56/01-IMG_7901.jpg",
+      "sha256": "6e439d6521aed82a390eb872fb4ec85616333afa2b6813e7d60aa082a8848060",
+      "encoded_pixels": [6240, 4160],
+      "rooms": ["living"],
+      "role": "supporting appearance",
+      "arrangement": "listing",
+      "observations": [
+        "Shows both exterior-window walls and the wallpaper and trim at higher detail.",
+        "Furniture differs from the target arrangement, including the television, bench, and leather seating."
+      ]
+    },
+    {
+      "path": "photos/top-360/215-N-Ave-56/02-IMG_7904.jpg",
+      "sha256": "5d8e82243afea7e5a9e81cfb5570edfaa8f4e63d57a07eaef47b39fd73a5dac6",
+      "encoded_pixels": [6240, 4160],
+      "rooms": ["living", "dining"],
+      "role": "supporting comparison",
+      "arrangement": "listing",
+      "camera": "ref_living_opening",
+      "comparison_exclusions": ["Listing television, bench, leather seating, and other movable furniture are excluded; architecture and openings remain comparison targets."],
+      "lens_evidence": "EXIF Canon EOS 6D Mark II with EF17-40mm lens at 17.0 mm; starting projection only",
+      "matched_projection": {"location_m": [5.55, 1.45, 1.50], "target_m": [9.10, 4.55, 1.30], "vertical_fov_degrees": 70, "render_pixels": [1280, 854]},
+      "observations": [
+        "Shows the living-to-dining opening, living side window, wallpaper alignment, piano wall, and trim.",
+        "Furniture differs from the target arrangement, so comparison excludes movable objects."
+      ]
+    },
+    {
+      "path": "photos/top-360/215-N-Ave-56/03-IMG_7907.jpg",
+      "sha256": "d4e72920452a00d19d8b41118a45a28da59215b6c8562636fa4ab49234587fa8",
+      "encoded_pixels": [6241, 4163],
+      "rooms": ["living", "dining", "foyer"],
+      "role": "supporting architecture",
+      "arrangement": "listing",
+      "observations": [
+        "Shows the living-to-dining and living-to-foyer openings together and gives useful evidence for their relative placement and trim.",
+        "Furniture differs from the target arrangement."
+      ]
+    },
+    {
+      "path": "photos/top-360/215-N-Ave-56/04-IMG_7910.jpg",
+      "sha256": "85481004f9b34ec68e83428de5db4c7e6e8c0c3dae4c51f2d4e798d5ff70475c",
+      "encoded_pixels": [6242, 4162],
+      "rooms": ["dining", "kitchen"],
+      "role": "supporting comparison",
+      "arrangement": "listing",
+      "camera": "ref_dining_cabinet",
+      "comparison_exclusions": ["Listing tabletop objects and the extra spindle chair are excluded; cabinet, openings, windows, paneling, table, benches, and chandelier remain comparison targets."],
+      "lens_evidence": "EXIF Canon EOS 6D Mark II with EF17-40mm lens at 17.0 mm; starting projection only",
+      "matched_projection": {"location_m": [5.20, 4.92, 1.48], "target_m": [7.45, 7.55, 1.24], "vertical_fov_degrees": 70, "render_pixels": [1280, 854]},
+      "observations": [
+        "Shows the cabinet elevation, kitchen doorway, side windows, wall paneling, wallpaper, table, benches, and chandelier.",
+        "Tabletop objects and the extra chair differ from the target arrangement."
+      ]
+    },
+    {
+      "path": "photos/top-360/215-N-Ave-56/05-IMG_7912.jpg",
+      "sha256": "4bf710823f72dc2942cd69d0acc2d35a308819d6efe3a7d7c50efb0d25a89900",
+      "encoded_pixels": [6240, 4160],
+      "rooms": ["dining", "living"],
+      "role": "supporting architecture",
+      "arrangement": "listing",
+      "observations": [
+        "Shows the dining-to-living opening, dining side windows, paneling, and the alignment of both rooms.",
+        "Furniture differs from the target arrangement."
+      ]
+    },
+    {
+      "path": "photos/floorplan/fplan-sketch-lower.jpg",
+      "sha256": "c900885ffda84314a8dd6d2b8e15435921b6a5a79be41c77f5d63c98202dc486",
+      "encoded_pixels": [2750, 3705],
+      "rooms": ["living", "dining"],
+      "role": "owner-confirmed layout",
+      "arrangement": "current room names",
+      "observations": [
+        "Confirms the living and dining labels, their shared opening, front placement, and connections to the foyer and kitchen.",
+        "The sketch is not dimensioned."
+      ]
+    },
+    {
+      "path": "design/floor-plans.pdf",
+      "sha256": "d9b16eee4aad0487ea27d1b6136051b0e776e0b09be994a7b138930a7d48a3e5",
+      "rooms": ["living", "dining"],
+      "role": "dimensioned architectural drawing",
+      "pages": [1],
+      "sheets": ["A2.0"],
+      "observations": [
+        "The proposed first-floor plan dimensions the living room and dining room, windows, exterior spans, and connected openings."
+      ]
+    }
+  ]
+}

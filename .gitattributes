@@ -1,0 +1,10 @@
+properties/sage/*.blend filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.png filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.webp filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.exr filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.hdr filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.tif filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.tiff filter=lfs diff=lfs merge=lfs -text
+properties/sage/textures/**/*.ktx2 filter=lfs diff=lfs merge=lfs -text

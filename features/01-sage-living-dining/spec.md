@@ -1,6 +1,6 @@
 # Sage living and dining reconstruction
 
-Status: designed; implementation has not started.
+Status: active.
 
 Build the first complete reconstruction workflow around Sage House's connected living and dining rooms.
 The result is an editable Blender scene, comparisons against the existing photographs, and a working two-room preview in the Zaratan website.

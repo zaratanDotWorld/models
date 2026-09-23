@@ -1,0 +1,54 @@
+{
+  "captured_at": "2026-09-19",
+  "website_root": "/Users/kronosapiens/code/zaratan/website",
+  "website_revision": "78f419bfd31ed0b1a68a2b1a87dbefe34aa28e68",
+  "browser": "Google Chrome 153.0.8010.48",
+  "platform": "macOS",
+  "viewport_css_pixels": [1440, 900],
+  "device_scale_factor": 2,
+  "scene_css_pixels": [1032, 712],
+  "canvas_render_pixels": [2064, 1424],
+  "scene_capture_pixels": [2064, 1426],
+  "route": "/houses/sage/tour",
+  "field_of_view_degrees": 75,
+  "captures": [
+    {
+      "room": "living",
+      "output": "renders/baseline/prototype-living-scene-1032x712.png",
+      "viewport_output": "renders/baseline/prototype-living-1440x900.png",
+      "camera_position_feet": [23, 5.3, -13],
+      "yaw_radians": 3.0,
+      "pitch_radians": -0.18
+    },
+    {
+      "room": "dining",
+      "output": "renders/baseline/prototype-dining-scene-1032x712.png",
+      "viewport_output": "renders/baseline/prototype-dining-1440x900.png",
+      "camera_position_feet": [18.2, 5.3, -17.2],
+      "yaw_radians": 1.0,
+      "pitch_radians": -0.12
+    }
+  ],
+  "source_sha256": {
+    "components/sage-tour/Scene.jsx": "65e9cf9994d5f1d2998ca7df48a977be0fc3de75ddba860046b6dcd88d6e9bd8",
+    "components/sage-tour/Tour.jsx": "980993e8d75e95cca5de50cad7918d669b455aec5e80bd7af8b157b3060c71aa",
+    "components/sage-tour/Tour.module.css": "f9319defcff00fbf0357f534829c4a17b27f4fd299be9d4795d987a54d99b341",
+    "components/sage-tour/batch-geometry.js": "8131821df64a456f82e61b5e3fcd0151994d4fa9b3286d65c1cec4142dba4b4e",
+    "components/sage-tour/bedrooms.js": "611bbaac3bec50b2d5cb4e3ffd7359e6a3f88767cd0344733995ec73f6a380d2",
+    "components/sage-tour/exterior.js": "c031309b2d0f8e873ee23c1a17e3df2b4893ba0471c0db9b91c69d1370d66104",
+    "components/sage-tour/house.js": "830218f6296b6e1a2bc4dc744124709c7b366675e8294c16e71129c8786c79fe",
+    "components/sage-tour/interior-architecture.js": "c86a96b271d816786240f7529a0b5536e78905e75975b905f79ed37f78021d3d",
+    "components/sage-tour/interior-kit.js": "fa9db0392e33966dd4d2567d40ef041289b4b4031e8e48a7b15803078f4a4603",
+    "components/sage-tour/materials.js": "2ae1f98fa5a08a277737f2e04c5be6a7d66d3b350a8451999bc1f98d66ee9de4",
+    "components/sage-tour/model.js": "3ed8e1a1560f09e508c9f3970f36732313b8a81be58f11eed994da38c8a2325b",
+    "components/sage-tour/shared-rooms.js": "997f4671f44fff97dc8d5b10d3290eec1112eee643c311adb1ae9fa94a6e551d",
+    "components/sage-tour/utility-rooms.js": "60a83141a6031afaf8851453923870782a45f116dc62ccedaebbb4aa7f03dc4e",
+    "pages/houses/sage/tour.jsx": "578a0b5ecc8df56eeaa82ae24a8fb6c72d943cd4f7d151efcb0f9e763273464d",
+    "package.json": "677a1d4d474322642a1d84c053b70dc2ba76822df4ee27e3a829bfb4153a4892",
+    "pnpm-lock.yaml": "0462225f5578153f83afc4fc06ac18eab90998f620d025b745b0622f59133f54",
+    "public/images/sage-tour/dining.webp": "5e27b60b64d735143fcd8f88488d1760c2d1a37cbb8be1c69f565d1b4af3cef6",
+    "public/images/sage-tour/living.webp": "7333a32e3c46f2169463aada0190e819b25b1caa95569aeace0d299e2d1c1aab",
+    "public/images/sage-tour/materials/dining-wallpaper.webp": "8d6f011bb551f55a2408e197b42136754233927bc079df703ebb27642a5690f9",
+    "public/images/sage-tour/materials/living-wallpaper.webp": "2bffab075d5107d1a3ff9d0c2e7b09d534aa2da114d0fbb568a60e537154c980"
+  }
+}
