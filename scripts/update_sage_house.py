@@ -74,6 +74,26 @@ def floor_assembly(collection, upper, material):
             wall_piece(collection,f"layout_floor_assembly_{spec['id']}",spec["start"],spec["end"],bottom,top,spec.get("thickness",5/12),upper,material)
 
 
+def carve_stair_window_band(collection):
+    """Continue A3.1 windows 200.1/200.2 through the inter-floor assembly."""
+    wall=next(spec for spec in UPPER_WALLS if spec["id"]=="u_west_front")
+    targets=[obj for obj in collection.all_objects if obj.type=="MESH" and obj.name.startswith("layout_floor_assembly_")]
+    for index,opening in enumerate(wall["apertures"][:2]):
+        y1=wall["start"][1]-opening["start"]; y2=wall["start"][1]-opening["end"]
+        bpy.ops.mesh.primitive_cube_add(location=(-.15*FT,(y1+y2)*FT/2,9.5*FT))
+        cutter=bpy.context.object; cutter.name=f"tmp_stair_window_band_{index}"; cutter.scale=(1.5*FT,abs(y2-y1)*FT/2,0.6*FT)
+        bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
+        for obj in targets:
+            corners=[obj.matrix_world @ Vector(corner) for corner in obj.bound_box]
+            if max(point.x for point in corners)<-1.65*FT or min(point.x for point in corners)>1.35*FT or max(point.y for point in corners)<min(y1,y2)*FT or min(point.y for point in corners)>max(y1,y2)*FT:
+                continue
+            modifier=obj.modifiers.new(f"stair_window_{index}","BOOLEAN"); modifier.operation="DIFFERENCE"; modifier.solver="EXACT"; modifier.object=cutter
+            bpy.context.view_layer.objects.active=obj
+            try: bpy.ops.object.modifier_apply(modifier=modifier.name)
+            except RuntimeError: obj.modifiers.remove(modifier)
+        bpy.data.objects.remove(cutter,do_unlink=True)
+
+
 def layout_camera(collection, name, location, target, ortho_scale=None):
     data = bpy.data.cameras.new(name)
     camera = bpy.data.objects.new(name, data)
@@ -160,7 +180,14 @@ def main():
     deck=UPPER_ROOMS["deck"]
     for index,(a,b) in enumerate(zip(deck,deck[1:]+deck[:1])):
         if index in {3,4,5}:
-            wall_piece(collection,f"layout_deck_guard_{index}",a,b,UPPER_Z,UPPER_Z+3.5,.12,upper,wood)
+            if index==3:
+                continue
+            if index==4:
+                a=(25.5,a[1])
+            guard=wall_piece(collection,f"layout_deck_guard_{index}",a,b,UPPER_Z,UPPER_Z+3.5,.12,upper,wood)
+            if index==4:
+                guard["source"]="A2.1 deck outline; photo 19 stair opening"
+    carve_stair_window_band(collection)
     for obj in bpy.data.objects:
         if obj.name.startswith("C_kitchen_context_"):
             obj.hide_render=True; obj.hide_viewport=True

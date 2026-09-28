@@ -99,9 +99,10 @@ Build a candidate after editing and run a complete local recovery check in an ig
 python3 scripts/sage_assets.py pack
 python3 scripts/sage_assets.py recover --destination .local/sage-assets/local-check
 mkdir -p .local/sage-assets/local-check/scripts
-cp scripts/check_sage.py scripts/check_sage_house.py scripts/sage_scene.py scripts/sage_house_layout.py .local/sage-assets/local-check/scripts/
+cp scripts/check_sage.py scripts/check_sage_house.py scripts/check_sage_site.py scripts/sage_scene.py scripts/sage_house_layout.py scripts/sage_site_layout.py .local/sage-assets/local-check/scripts/
 "$BLENDER_BIN" --background .local/sage-assets/local-check/properties/sage/sage.blend --python-exit-code 1 --python .local/sage-assets/local-check/scripts/check_sage.py
 "$BLENDER_BIN" --background .local/sage-assets/local-check/properties/sage/sage.blend --python-exit-code 1 --python .local/sage-assets/local-check/scripts/check_sage_house.py
+"$BLENDER_BIN" --background .local/sage-assets/local-check/properties/sage/sage.blend --python-exit-code 1 --python .local/sage-assets/local-check/scripts/check_sage_site.py
 ```
 
 `pack` writes the ZIP and a separate candidate manifest under `.local/sage-assets/`.
@@ -211,6 +212,25 @@ Run its read-only checks, evidence renders, and separate native export with:
 
 The renderer writes labeled ground and upper plans, front and rear cutaways, and a source/model gallery to `renders/sage-house-layout/`.
 The full-house exporter writes `exports/sage-house-layout/scene.glb` and its source note without changing the existing two-room browser contract.
+
+Apply the separately owned full-site architecture after the house layout:
+
+```sh
+"$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/update_sage_site.py
+```
+
+The updater replaces `SITE_LAYOUT`, `SITE_ROOFS`, and `SITE_LAYOUT_CAMERAS` while preserving the detailed-room and house-layout collections.
+Run its focused check, evidence render, and local inspection export with:
+
+```sh
+"$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/check_sage_site.py
+"$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/render_sage_site.py
+"$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/export_sage_site.py
+"$BLENDER_BIN" --background --factory-startup --python-exit-code 1 --python scripts/check_sage_site_glb.py -- exports/sage-site/scene.glb
+```
+
+The gallery is written to `renders/sage-site-layout/`, and the separate site GLB is written to `exports/sage-site/scene.glb`.
+Neither changes the two-room website export contract.
 
 ## Intended workflow
 

@@ -18,10 +18,20 @@ CAMERAS = {
 }
 
 
+def collection_objects(collection):
+    objects=list(collection.objects)
+    for child in collection.children:
+        objects.extend(collection_objects(child))
+    return objects
+
+
 def main():
     OUTPUT.mkdir(parents=True, exist_ok=True)
     scene = bpy.context.scene
-    scene.render.engine = "BLENDER_EEVEE_NEXT" if os.environ.get("SAGE_RENDER_ENGINE") == "BLENDER_EEVEE_NEXT" else "CYCLES"
+    requested_engine=os.environ.get("SAGE_RENDER_ENGINE","CYCLES")
+    if requested_engine not in {"CYCLES","BLENDER_EEVEE_NEXT","BLENDER_WORKBENCH"}:
+        raise RuntimeError(f"Unsupported SAGE_RENDER_ENGINE: {requested_engine}")
+    scene.render.engine=requested_engine
     scene.cycles.samples = int(os.environ.get("SAGE_RENDER_SAMPLES", "32"))
     scene.cycles.use_denoising = True
     scene.render.resolution_percentage = 100
@@ -36,6 +46,10 @@ def main():
     for name in requested:
         engine_before = scene.render.engine
         visibility_before = {obj: obj.hide_render for obj in bpy.data.objects}
+        site = bpy.data.collections.get("SITE_LAYOUT")
+        if site:
+            for obj in collection_objects(site):
+                obj.hide_render = True
         camera = bpy.data.objects.get(name)
         if camera is None or camera.type != "CAMERA":
             raise RuntimeError(f"Missing required camera: {name}")

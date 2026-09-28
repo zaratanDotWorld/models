@@ -13,6 +13,13 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "renders/sage-house-layout"
 
 
+def collection_objects(collection):
+    objects=list(collection.objects)
+    for child in collection.children:
+        objects.extend(collection_objects(child))
+    return objects
+
+
 def point(camera, target):
     camera.rotation_euler = (Vector(target) - camera.location).to_track_quat("-Z", "Y").to_euler()
 
@@ -59,6 +66,10 @@ def render(name, location, target=None, ortho=None, upper=False):
     scene.render.image_settings.file_format = "PNG"
     scene.render.filepath = str(OUT / f"{name}.png")
     saved = {obj: obj.hide_render for obj in bpy.data.objects}
+    site = bpy.data.collections.get("SITE_LAYOUT")
+    if site:
+        for obj in collection_objects(site):
+            obj.hide_render = True
     temporary = []
     if name in {"ground-plan", "upper-plan"}:
         temporary = labels(UPPER_ROOMS if upper else GROUND_ROOMS, 10*.3048 if upper else 0)

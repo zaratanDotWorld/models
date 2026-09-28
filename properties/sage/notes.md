@@ -92,7 +92,21 @@ Gray dashed demolition walls and closets are omitted.
 The solid linen west partition follows A2.1 while the demolished vestibule partition below it remains absent.
 The staircase follows the two source footprints with an inferred count of eight risers per flight.
 The rear deck follows the source-visible side and rear outline, while its outer depth remains inferred because the drawing does not print it.
-The recessed front facade, two entrance door openings, and their floor thresholds are modeled without exterior entrance steps because their heights are not shown.
+The recessed front facade, two entrance door openings, and their floor thresholds meet the site-owned porch and inferred exterior entrance steps.
 Rear utility-basement access is represented by three visible exterior context steps outside BED2, with inferred half-foot drops and no basement floor.
 The full-house export is separate from the two-room website contract and intentionally carries no browser metadata file.
 The source/model gallery at `renders/sage-house-layout/index.html` pairs the complete right-hand plan crops with labeled model plans and shows both front and rear cutaways.
+
+## Full-site architecture
+
+The site reconstruction uses A1.0's 50-foot by 196-foot-3-inch parcel and complete printed longitudinal chain without moving the accepted main-house layout.
+The detached unit uses A2.3's 12-foot by 17-foot-11-inch shell, L-shaped bathroom partition, opening schedule, 8-foot-1/2-inch plate, and 12-foot-1-inch ridge after rotation into the site orientation.
+The main roof follows A2.2's short ridge, hips, front valley and gable ridge, and rear pitch break at the approximate traced plan positions.
+Simple closed exterior door leaves use the scheduled main-house and detached-unit aperture dimensions while remaining owned by the replaceable site layer.
+Two first-floor shed roofs follow A2.2's south-side dining and rear footprints; their unprinted lateral projection and pitch are inferred from A3.0.
+A3.0 and A3.1 keep the rear pitch-break eave above the 18-foot-6-inch upper ceiling; its undimensioned junction height is inferred from those elevations.
+A3.0's height chain places the main ridge near 28 feet 2 inches above the saved main finished-floor datum; the printed overall chains differ by about 1.5 inches.
+The garage height and roof pitch, parking-stall depth, landscape surface boundaries, front step heights, and rear deck-stair tread dimensions remain inferred where the supplied drawings do not print them.
+The recessed front porch meets the fixed main finished-floor datum, while its four treads descend to an inferred local grade 0.6 feet below that datum.
+The rear exterior stair arrangement follows listing photographs 18 through 21, and the garage gable character follows photograph 22.
+`SITE_LAYOUT`, `SITE_ROOFS`, and `SITE_LAYOUT_CAMERAS` are replaceable site-only collections outside the existing `EXPORT` contract.

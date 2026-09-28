@@ -1,5 +1,202 @@
 {
   "current": {
+    "archive_name": "sage-assets-d8510dfc1585e0ab26564d118d5075ee5ef0ad31eac900b9309e0bd51d7d3895.zip",
+    "archive_sha256": "d8510dfc1585e0ab26564d118d5075ee5ef0ad31eac900b9309e0bd51d7d3895",
+    "content_sha256": "d1df31340c843d8bb39ec9bb3b8e3090e127f821fffc2a195159d0be1b2b7135",
+    "payloads": [
+      {
+        "bytes": 14136568,
+        "path": "properties/sage/sage.blend",
+        "sha256": "cb00e4e8b5110b32e47374666b4e1d5546757914f13df4680ae5d9ac2e3f9073"
+      },
+      {
+        "bytes": 10635888,
+        "path": ".local/sage-furniture-unbatched.glb",
+        "sha256": "27fd01cc2114139dc654ce90898ed859f11af0f5a1803941752e489b21b15ea1"
+      },
+      {
+        "bytes": 558800,
+        "path": "properties/sage/textures/dining-wallpaper.webp",
+        "sha256": "8d6f011bb551f55a2408e197b42136754233927bc079df703ebb27642a5690f9"
+      },
+      {
+        "bytes": 404894,
+        "path": "properties/sage/textures/living-wallpaper.webp",
+        "sha256": "2bffab075d5107d1a3ff9d0c2e7b09d534aa2da114d0fbb568a60e537154c980"
+      },
+      {
+        "bytes": 18708,
+        "path": "properties/sage/textures/tour-cream-001.png",
+        "sha256": "857a2564d52ae194991701ebff800d291b1219e6971fd12f8c914cb52ee1e9fb"
+      },
+      {
+        "bytes": 18708,
+        "path": "properties/sage/textures/tour-cream-002.png",
+        "sha256": "857a2564d52ae194991701ebff800d291b1219e6971fd12f8c914cb52ee1e9fb"
+      },
+      {
+        "bytes": 18708,
+        "path": "properties/sage/textures/tour-cream.png",
+        "sha256": "857a2564d52ae194991701ebff800d291b1219e6971fd12f8c914cb52ee1e9fb"
+      },
+      {
+        "bytes": 3496849,
+        "path": "properties/sage/textures/tour-diningwallpaper-001.png",
+        "sha256": "97d2918e6b016b02dd7915ae2468a3eb6613d1b6dc299af79caf3a61dacaa39c"
+      },
+      {
+        "bytes": 3496849,
+        "path": "properties/sage/textures/tour-diningwallpaper-002.png",
+        "sha256": "97d2918e6b016b02dd7915ae2468a3eb6613d1b6dc299af79caf3a61dacaa39c"
+      },
+      {
+        "bytes": 3496849,
+        "path": "properties/sage/textures/tour-diningwallpaper.png",
+        "sha256": "97d2918e6b016b02dd7915ae2468a3eb6613d1b6dc299af79caf3a61dacaa39c"
+      },
+      {
+        "bytes": 3879,
+        "path": "properties/sage/textures/tour-fabricred-001.png",
+        "sha256": "9d0823b28ba4302b124d1cb4c312e1f75d217698dc09453b9f1f46ec12956f7b"
+      },
+      {
+        "bytes": 3879,
+        "path": "properties/sage/textures/tour-fabricred.png",
+        "sha256": "9d0823b28ba4302b124d1cb4c312e1f75d217698dc09453b9f1f46ec12956f7b"
+      },
+      {
+        "bytes": 3879,
+        "path": "properties/sage/textures/tour-linen-001.png",
+        "sha256": "9d0823b28ba4302b124d1cb4c312e1f75d217698dc09453b9f1f46ec12956f7b"
+      },
+      {
+        "bytes": 3879,
+        "path": "properties/sage/textures/tour-linen-002.png",
+        "sha256": "9d0823b28ba4302b124d1cb4c312e1f75d217698dc09453b9f1f46ec12956f7b"
+      },
+      {
+        "bytes": 3879,
+        "path": "properties/sage/textures/tour-linen.png",
+        "sha256": "9d0823b28ba4302b124d1cb4c312e1f75d217698dc09453b9f1f46ec12956f7b"
+      },
+      {
+        "bytes": 2466318,
+        "path": "properties/sage/textures/tour-livingwallpaper-001.png",
+        "sha256": "0f4c85c5042f6512c1729852080c366bc6ab0e53b978be84a26c113877ca785b"
+      },
+      {
+        "bytes": 2466318,
+        "path": "properties/sage/textures/tour-livingwallpaper-002.png",
+        "sha256": "0f4c85c5042f6512c1729852080c366bc6ab0e53b978be84a26c113877ca785b"
+      },
+      {
+        "bytes": 2466318,
+        "path": "properties/sage/textures/tour-livingwallpaper.png",
+        "sha256": "0f4c85c5042f6512c1729852080c366bc6ab0e53b978be84a26c113877ca785b"
+      },
+      {
+        "bytes": 6313,
+        "path": "properties/sage/textures/tour-material-16-001.png",
+        "sha256": "4422e5743932b1a0ae13701a499694e13dd0fcaac36c4b38f99dcef8a4109e38"
+      },
+      {
+        "bytes": 6313,
+        "path": "properties/sage/textures/tour-material-16-002.png",
+        "sha256": "4422e5743932b1a0ae13701a499694e13dd0fcaac36c4b38f99dcef8a4109e38"
+      },
+      {
+        "bytes": 6313,
+        "path": "properties/sage/textures/tour-material-16.png",
+        "sha256": "4422e5743932b1a0ae13701a499694e13dd0fcaac36c4b38f99dcef8a4109e38"
+      },
+      {
+        "bytes": 6313,
+        "path": "properties/sage/textures/tour-material-50-001.png",
+        "sha256": "4422e5743932b1a0ae13701a499694e13dd0fcaac36c4b38f99dcef8a4109e38"
+      },
+      {
+        "bytes": 6313,
+        "path": "properties/sage/textures/tour-material-50.png",
+        "sha256": "4422e5743932b1a0ae13701a499694e13dd0fcaac36c4b38f99dcef8a4109e38"
+      },
+      {
+        "bytes": 44818,
+        "path": "properties/sage/textures/tour-material-65-001.png",
+        "sha256": "88e42e3dfdbe30e9e2328a41c6ce49bbaa21856d2097e148390877cfae6807f2"
+      },
+      {
+        "bytes": 44818,
+        "path": "properties/sage/textures/tour-material-65-002.png",
+        "sha256": "88e42e3dfdbe30e9e2328a41c6ce49bbaa21856d2097e148390877cfae6807f2"
+      },
+      {
+        "bytes": 44818,
+        "path": "properties/sage/textures/tour-material-65.png",
+        "sha256": "88e42e3dfdbe30e9e2328a41c6ce49bbaa21856d2097e148390877cfae6807f2"
+      },
+      {
+        "bytes": 44818,
+        "path": "properties/sage/textures/tour-material-91-001.png",
+        "sha256": "88e42e3dfdbe30e9e2328a41c6ce49bbaa21856d2097e148390877cfae6807f2"
+      },
+      {
+        "bytes": 44818,
+        "path": "properties/sage/textures/tour-material-91.png",
+        "sha256": "88e42e3dfdbe30e9e2328a41c6ce49bbaa21856d2097e148390877cfae6807f2"
+      },
+      {
+        "bytes": 29834,
+        "path": "properties/sage/textures/tour-oak-001.png",
+        "sha256": "e532e730945b2a259b542b7b9178f067e78e6d78144308e6e83329673ea076bd"
+      },
+      {
+        "bytes": 29834,
+        "path": "properties/sage/textures/tour-oak.png",
+        "sha256": "e532e730945b2a259b542b7b9178f067e78e6d78144308e6e83329673ea076bd"
+      },
+      {
+        "bytes": 310009,
+        "path": "properties/sage/textures/tour-rugrose-001.png",
+        "sha256": "ee99fdb91fcb3d0f4c769681aecbb3a73f67baad0dacca4d7fa883086814df24"
+      },
+      {
+        "bytes": 310009,
+        "path": "properties/sage/textures/tour-rugrose-002.png",
+        "sha256": "ee99fdb91fcb3d0f4c769681aecbb3a73f67baad0dacca4d7fa883086814df24"
+      },
+      {
+        "bytes": 310009,
+        "path": "properties/sage/textures/tour-rugrose.png",
+        "sha256": "ee99fdb91fcb3d0f4c769681aecbb3a73f67baad0dacca4d7fa883086814df24"
+      },
+      {
+        "bytes": 29834,
+        "path": "properties/sage/textures/tour-walnut-001.png",
+        "sha256": "e532e730945b2a259b542b7b9178f067e78e6d78144308e6e83329673ea076bd"
+      },
+      {
+        "bytes": 29834,
+        "path": "properties/sage/textures/tour-walnut-002.png",
+        "sha256": "e532e730945b2a259b542b7b9178f067e78e6d78144308e6e83329673ea076bd"
+      },
+      {
+        "bytes": 29834,
+        "path": "properties/sage/textures/tour-walnut.png",
+        "sha256": "e532e730945b2a259b542b7b9178f067e78e6d78144308e6e83329673ea076bd"
+      },
+      {
+        "bytes": 69379,
+        "path": "properties/sage/textures/tour-woodfloor.png",
+        "sha256": "c95a2d3a2dc0fc9a2a8a36ac5711b816e5bed14882f1ce5e37dfb7c1a3d2caff"
+      }
+    ],
+    "source": {
+      "revision": "a1de1471ee031d3276725589288cf47353586a84",
+      "worktree_dirty": true
+    }
+  },
+  "format_version": 1,
+  "previous": {
     "archive_name": "sage-assets-922bb74a89ec1329349dcaaf69ce470746946e27d507075edee670791a23a1e0.zip",
     "archive_sha256": "922bb74a89ec1329349dcaaf69ce470746946e27d507075edee670791a23a1e0",
     "content_sha256": "3f8894b129f7fd64b7d43b1131cc35cc76d9b76900c2feed42359bc6c8daa2c1",
@@ -195,8 +392,6 @@
       "worktree_dirty": true
     }
   },
-  "format_version": 1,
-  "previous": null,
   "release": {
     "prerelease": true,
     "tag": "sage-assets"

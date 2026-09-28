@@ -122,3 +122,54 @@ UPPER_WALLS = [
     horizontal("upper",UF,"u_bed4_north",334,109,698,[("door",540,638,0,7)]), horizontal("upper",UF,"u_bed5_neck_north",334,698,848,[("door",724,822,0,7)]),
     vertical("upper",UF,"u_bed4_bed5",698,334,827),
 ]
+
+# Exterior window heights transcribed from A3.0/A3.1 and A0.5.  The accepted
+# plan trace continues to govern horizontal positions; the neutral shell's old
+# blanket 3ft sill / 7ft head assumption does not.
+_WINDOW_SCHEDULE = {
+    "100.1": (5, 7), "103.1": (3.5, 7), "103.2": (3.5, 7), "104.1": (4+2/12, 7),
+    "104.2": (4.5, 7), "106.1": (3, 7), "107.1": (4+2/12, 7), "107.2": (3, 7),
+    "108.1": (2+8/12, 7), "109.1": (5, 7),
+    "200.1": (4+4/12, 6), "200.2": (4+4/12, 6),
+    "201.1": (4.5, 6+8/12), "201.2": (4.5, 6+8/12), "201.3": (4.5, 6+8/12),
+    "203.1": (2, 6+8/12), "203.2": (4.5, 6+8/12), "203.3": (4.5, 6+8/12),
+    "204.1": (4.5, 6+8/12), "205.1": (4.5, 6+8/12), "205.2": (4.5, 6+8/12),
+    "206.1": (4.5, 6+8/12), "207.1": (4, 6+8/12), "207.2": (3+10/12, 6+8/12),
+    "207.3": (3+10/12, 6+8/12), "208.1": (3+4/12, 6+8/12),
+    "208.2": (3+10/12, 6+8/12), "209.1": (4.5, 6+8/12), "210.1": (4.5, 6+8/12),
+}
+_EXTERIOR_MARKS = {
+    "g_west": ("107.2","108.1","109.1","100.1"),
+    "g_rear": ("107.1","106.1",None,"104.2"),
+    "g_east_rear": ("104.1","103.2","103.1"),
+    "u_west_rear": ("210.1",), "u_west_front": ("200.1","200.2","201.1"),
+    "u_bed9_north": ("209.1",), "u_bath3_west": ("208.2",),
+    "u_rear": ("208.1",None,"207.3","207.2"), "u_library_east": ("207.1",),
+    "u_east_rear": ("206.1","205.2","205.1"), "u_east_front": ("204.1","203.3"),
+    "u_bed4_front": ("201.2","201.3"), "u_bed5_front": ("203.1","203.2"),
+}
+for _wall in GROUND_WALLS + UPPER_WALLS:
+    for _opening, _mark in zip(_wall.get("apertures", ()), _EXTERIOR_MARKS.get(_wall["id"], ())):
+        if not _mark:
+            continue
+        _height, _head = _WINDOW_SCHEDULE[_mark]
+        if _mark in {"200.1", "200.2"}:
+            # A3.1 places these stair windows from 6ft8in to 11ft above the
+            # main FFL; their A0.5 head is referenced to the 5ft stair landing.
+            _opening.update(kind="window", bottom=-3-4/12, top=1.0, source_mark=_mark, datum="stair landing at 5ft")
+        else:
+            _opening.update(kind="window", bottom=_head-_height, top=_head, source_mark=_mark)
+
+# The two 200-series stair windows cross the ground wall and inter-floor band.
+# Their plan positions come from u_west_front; these lower segments use the
+# same world Y extents expressed as offsets from g_west's rear-to-front start.
+_ground_west = next(_wall for _wall in GROUND_WALLS if _wall["id"] == "g_west")
+_upper_west = next(_wall for _wall in UPPER_WALLS if _wall["id"] == "u_west_front")
+for _opening in _upper_west["apertures"][:2]:
+    _world_y1 = _upper_west["start"][1] - _opening["start"]
+    _world_y2 = _upper_west["start"][1] - _opening["end"]
+    _ground_west["apertures"].append({
+        "kind":"window", "start":_ground_west["start"][1]-_world_y1,
+        "end":_ground_west["start"][1]-_world_y2, "bottom":6+8/12,
+        "top":GROUND_HEIGHT, "source_mark":_opening["source_mark"], "datum":"stair landing at 5ft",
+    })
