@@ -47,7 +47,8 @@ The original Sage references remain in Dropbox:
 /Users/kronosapiens/Library/CloudStorage/Dropbox/Documents/Work/Zaratan/Sage
 ```
 
-See the [source references](spec/arch.md#source-references) for the relevant plans and photographs.
+Public [architectural drawing extracts](properties/sage/plans/README.md) are available in this repository through Git LFS.
+See the [source references](spec/arch.md#source-references) for the private originals and photographs.
 Set `SAGE_REFERENCE_ROOT` to map this source directory; machine-specific paths do not belong in modeling scripts.
 
 The existing prototype is in `components/sage-tour/` of the website checkout at `/Users/kronosapiens/code/zaratan/website`.
@@ -69,7 +70,7 @@ export SAGE_REFERENCE_ROOT="/absolute/path/to/Sage"
 ```
 
 `SAGE_REFERENCE_ROOT` must contain the relative paths recorded in `properties/sage/references.json`.
-Original photographs and drawings remain outside this repository.
+Original photographs and complete drawing sets remain outside this repository.
 Blender uses its bundled Python, so this repository needs no application runtime or package manager.
 
 Confirm the local prerequisites from the repository root:
@@ -81,7 +82,8 @@ git lfs version
 
 On macOS, Blender background commands may need permission to access the Metal device during startup.
 Git LFS is configured for this repository with `git lfs install --local`.
-The master `.blend` file and derived texture binaries under `properties/sage/textures/` use LFS, while generated `renders/` and `exports/` remain ignored.
+The master `.blend` file, derived texture binaries under `properties/sage/textures/`, and architectural PDF extracts under `properties/sage/plans/` use LFS.
+Generated `renders/` and `exports/` remain ignored.
 
 Create the Sage master once from the repository root:
 
