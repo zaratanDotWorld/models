@@ -5,3 +5,13 @@ __pycache__/
 *.blend[0-9]*
 exports/
 renders/
+properties/sage/sage.blend
+properties/sage/textures/**/*.png
+properties/sage/textures/**/*.jpg
+properties/sage/textures/**/*.jpeg
+properties/sage/textures/**/*.webp
+properties/sage/textures/**/*.exr
+properties/sage/textures/**/*.hdr
+properties/sage/textures/**/*.tif
+properties/sage/textures/**/*.tiff
+properties/sage/textures/**/*.ktx2

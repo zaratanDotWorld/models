@@ -82,8 +82,66 @@ git lfs version
 
 On macOS, Blender background commands may need permission to access the Metal device during startup.
 Git LFS is configured for this repository with `git lfs install --local`.
-The master `.blend` file, derived texture binaries under `properties/sage/textures/`, and architectural PDF extracts under `properties/sage/plans/` use LFS.
+The architectural PDF extracts under `properties/sage/plans/` use LFS.
+The migration sequence below keeps the master `.blend` file and derived texture binaries LFS-tracked until remote recovery succeeds.
 Generated `renders/` and `exports/` remain ignored.
+
+### Sage asset bundles
+
+The Sage master, its required texture binaries, and `.local/sage-furniture-unbatched.glb` can be stored together in the `sage-assets` prerelease in `zaratanDotWorld/models`.
+That release is excluded from GitHub's normal Latest release selection.
+The checked-in `properties/sage/assets.json` records the last successfully published bundle and one previous bundle.
+The manifest must name a remotely verified current bundle before the master and textures are removed from Git tracking.
+
+Build a candidate after editing and run a complete local recovery check in an ignored directory:
+
+```sh
+python3 scripts/sage_assets.py pack
+python3 scripts/sage_assets.py recover --destination .local/sage-assets/local-check
+mkdir -p .local/sage-assets/local-check/scripts
+cp scripts/check_sage.py scripts/check_sage_house.py scripts/sage_scene.py scripts/sage_house_layout.py .local/sage-assets/local-check/scripts/
+"$BLENDER_BIN" --background .local/sage-assets/local-check/properties/sage/sage.blend --python-exit-code 1 --python .local/sage-assets/local-check/scripts/check_sage.py
+"$BLENDER_BIN" --background .local/sage-assets/local-check/properties/sage/sage.blend --python-exit-code 1 --python .local/sage-assets/local-check/scripts/check_sage_house.py
+```
+
+`pack` writes the ZIP and a separate candidate manifest under `.local/sage-assets/`.
+`recover` verifies the archive, every bundled file, and the supported paths before writing anything.
+It refuses to overwrite a differing local file unless `--force` is passed explicitly.
+
+Publish only after reviewing that candidate:
+
+```sh
+python3 scripts/sage_assets.py publish
+```
+
+The publish command uses the authenticated `gh` CLI, creates the prerelease when needed, uploads the candidate, downloads and verifies it, prunes older workflow bundles, and then atomically updates `properties/sage/assets.json`.
+It keeps the new current bundle and the previously current bundle.
+Run one publisher at a time.
+
+After publication, recover the current or previous bundle with:
+
+```sh
+python3 scripts/sage_assets.py fetch
+python3 scripts/sage_assets.py fetch --bundle previous --destination .local/sage-assets/previous-check
+```
+
+Run `fetch` on a fresh checkout before opening the Sage master.
+
+For the first publication, publish the preserved pre-site candidate and then the separately packed current candidate:
+
+```sh
+python3 scripts/sage_assets.py publish --candidate .local/sage-assets/candidate.json
+python3 scripts/sage_assets.py publish --candidate .local/sage-assets-current/candidate.json
+python3 scripts/sage_assets.py fetch --destination .local/sage-assets/remote-check
+python3 scripts/sage_assets.py fetch --bundle previous --destination .local/sage-assets/remote-previous-check
+```
+
+Run the matching isolated Blender checks against both remote recoveries.
+Compare the recovered payload hashes before changing Git tracking.
+Only after both remote recoveries succeed, preserve the working files while removing the master and texture binaries from Git, remove only their LFS rules from `.gitattributes`, and add those binary paths to `.gitignore`.
+Keep Git LFS installed for the public architectural PDF extracts.
+This migration does not rewrite existing Git or LFS history.
+Historical revisions still require Git LFS.
 
 Create the Sage master once from the repository root:
 
