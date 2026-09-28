@@ -71,7 +71,11 @@ UPPER_ROOMS = {
     "rear-upper-hall": [crop_point("upper", UR,x,y) for x,y in [(539,246),(698,246),(698,388),(893,388),(893,514),(698,514),(698,574),(539,574)]],
     "bath-upper-back": [crop_point("upper", UR,x,y) for x,y in [(322,36),(539,36),(539,388),(322,388)]],
     "library": [crop_point("upper", UR,x,y) for x,y in [(539,36),(1247,36),(1247,388),(698,388),(698,246),(539,246)]],
-    "deck": [crop_point("upper", UR,x,y) for x,y in [(109,388),(322,388),(322,28),(1247,28),(1247,-85),(109,-85)]],
+    # A2.1 fixes the 5ft9in side deck beside Bath 208.  Its 25ft5in rear
+    # dimension line was previously misread as a full-width deck edge.
+    # Photos 18/19/21/26 and deck.JPG support an approximately 19ft by 8ft
+    # rear platform, with its outer post line short of existing window 207.3.
+    "deck": [(-.1554054054054054,39.58108108108108),(5.601351351351352,39.58108108108108),(5.601351351351352,49.310810810810814),(19,49.310810810810814),(19,57.310810810810814),(-.1554054054054054,57.310810810810814)],
 }
 
 STAIR_OPENING = [crop_point("upper", UF,x,y) for x,y in [(117,63),(525,63),(525,184),(254,184),(254,326),(117,326)]]
@@ -102,7 +106,9 @@ UPPER_WALLS = [
     vertical("upper",UR,"u_west_rear",109,388,1070,[("window",839,950,3,7)]),
     vertical("upper",UF,"u_west_front",109,0,791,[("window",79,164,3,7),("window",190,276,3,7),("window",353,464,3,7)]),
     horizontal("upper",UR,"u_bed9_north",388,109,322,[("door",124,234,0,7)]), vertical("upper",UR,"u_bath3_west",322,28,388,[("window",148,258,3,7)]),
-    horizontal("upper",UR,"u_rear",28,322,1247,[("window",343,454,3,7),("door",633,743,0,7),("window",899,1009,3,7),("window",1026,1136,3,7)]),
+    # A3.1 marks 207.2 as a new window, but the owner confirmed it was not built;
+    # photos 18 and 21 show the finished blank wall.  Retain existing 207.3.
+    horizontal("upper",UR,"u_rear",28,322,1247,[("window",343,454,3,7),("door",633,743,0,7),("window",899,1009,3,7)]),
     vertical("upper",UR,"u_library_east",1247,28,388,[("window",157,269,3,7)]), horizontal("upper",UR,"u_rear_shoulder",388,1247,1315),
     vertical("upper",UR,"u_east_rear",1315,388,1098,[("window",455,653,3,7),("window",730,830,3,7),("window",954,1053,3,7)]),
     vertical("upper",UF,"u_east_front",1315,28,827,[("window",69,167,3,7),("window",426,525,3,7)]),
@@ -144,7 +150,7 @@ _EXTERIOR_MARKS = {
     "g_east_rear": ("104.1","103.2","103.1"),
     "u_west_rear": ("210.1",), "u_west_front": ("200.1","200.2","201.1"),
     "u_bed9_north": ("209.1",), "u_bath3_west": ("208.2",),
-    "u_rear": ("208.1",None,"207.3","207.2"), "u_library_east": ("207.1",),
+    "u_rear": ("208.1",None,"207.3"), "u_library_east": ("207.1",),
     "u_east_rear": ("206.1","205.2","205.1"), "u_east_front": ("204.1","203.3"),
     "u_bed4_front": ("201.2","201.3"), "u_bed5_front": ("203.1","203.2"),
 }

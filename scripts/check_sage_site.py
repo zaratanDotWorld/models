@@ -34,6 +34,14 @@ def downward_hit(x, y, z=20):
     return obj.name, position.z/FT
 
 
+def forward_hit(x, y, z):
+    hit, position, _normal, _face, obj, _matrix = bpy.context.scene.ray_cast(
+        bpy.context.evaluated_depsgraph_get(), Vector((x*FT,y*FT,z*FT)),
+        Vector((0,1,0)), distance=2*FT)
+    if not hit: raise AssertionError(f"No surface ahead of ({x}, {y}, {z})")
+    return obj.name, position.y/FT
+
+
 def main():
     for name in ["SITE_LAYOUT","SITE_ROOFS","SITE_LAYOUT_CAMERAS"]:
         if not bpy.data.collections.get(name): raise AssertionError(f"Missing {name}")
@@ -65,6 +73,47 @@ def main():
         close(dimensions[-2],width,.02,f"{name} scheduled width")
         close(dimensions[-1],height,.02,f"{name} scheduled height")
         if bpy.data.objects[name].get("pose")!="closed": raise AssertionError(f"{name} has no deliberate pose")
+    if "site_frame_u_rear_3_glass" in bpy.data.objects:
+        raise AssertionError("Confirmed unbuilt rear window 207.2 still has an exterior frame")
+    for name in ["site_rear_switch_guard_outer_rail_0","site_rear_stair_lower_post_60.31_0","site_rear_stair_upper_post_14_0","site_front_porch_curve_left","site_front_porch_curve_right"]:
+        if name not in bpy.data.objects:
+            raise AssertionError(f"Missing connected exterior detail {name}")
+    omitted_wall=bpy.data.objects.get("u_rear_solid_end")
+    if not omitted_wall or size_ft(omitted_wall.name)[0]<5.5:
+        raise AssertionError("Rear wall does not infill the confirmed unbuilt 207.2 opening")
+    left_curve_low,left_curve_high=world_bounds("site_front_porch_curve_left")
+    left_column_low,left_column_high=world_bounds("site_front_porch_pier_left")
+    header_low,header_high=world_bounds("site_front_porch_header")
+    if left_curve_low[0]>left_column_high[0]+.02 or left_curve_high[0]<header_low[0]-.02:
+        raise AssertionError("Porch curve does not connect its column and header")
+    header_hit,header_y=forward_hit(8,-4,8.4)
+    if header_hit!="site_front_porch_header" or abs(header_y+3.25)>.02:
+        raise AssertionError(f"Porch spandrel is open: {header_hit} at {header_y:.3f}ft")
+    side_hit,side_position,_normal,_face,side_obj,_matrix=bpy.context.scene.ray_cast(
+        bpy.context.evaluated_depsgraph_get(),Vector((1*FT,0,4*FT)),Vector((1,0,0)),distance=2.5*FT)
+    if side_hit and side_obj.name.startswith("site_front_porch"):
+        raise AssertionError(f"Porch side opening is blocked by {side_obj.name} at X={side_position.x/FT:.3f}ft")
+    for y in (60.31,64.31):
+        for index in range(0,15,3):
+            post_low,post_high=world_bounds(f"site_rear_stair_lower_post_{y}_{index}")
+            if post_high[2]-post_low[2]<1.5*FT:
+                raise AssertionError(f"Rear stair rail post {y}/{index} does not connect tread and rail")
+    for glass_name,trim_name,axis,direction in [
+        ("site_frame_u_bed5_front_1_glass","site_frame_u_bed5_front_1_top",1,1),
+        ("site_frame_g_rear_3_glass","site_frame_g_rear_3_top",1,-1),
+        ("site_frame_g_east_rear_0_glass","site_frame_g_east_rear_0_top",0,-1),
+    ]:
+        glass_low,glass_high=world_bounds(glass_name); trim_low,trim_high=world_bounds(trim_name)
+        glass_center=(glass_low[axis]+glass_high[axis])/2
+        trim_center=(trim_low[axis]+trim_high[axis])/2
+        if direction*(glass_center-trim_center)<.10*FT:
+            raise AssertionError(f"{glass_name} is not recessed inward behind its exterior trim")
+    fascia_low,fascia_high=world_bounds("site_rear_deck_fascia")
+    for x in (1,7,13,19):
+        joist_low,joist_high=world_bounds(f"site_rear_deck_joist_{x}")
+        support_low,support_high=world_bounds(f"site_rear_deck_support_{x}")
+        if joist_high[2]<9.92*FT or support_high[2]<joist_low[2] or support_high[1]<fascia_low[1]:
+            raise AssertionError(f"Rear deck support at {x} does not contact deck, joist, and fascia")
     for label,inner_x,y1,y2 in [("dining",32.68,15.0,27.8),("rear_south",30.82,39.8,49.5)]:
         name=f"site_roof_south_{label}_shed"; low,high=world_bounds(name)
         close(low[0]/FT,inner_x,.02,f"{label} shed inner edge")
@@ -95,12 +144,27 @@ def main():
     porch_hit,porch_z=downward_hit(8,3.3,1)
     if porch_hit not in {"site_front_porch","layout_foyer_floor"} or abs(porch_z)>.02:
         raise AssertionError(f"Porch does not meet entry FFL: {porch_hit} at {porch_z:.3f}ft")
-    for i,(y,expected_z) in enumerate([(-3.5,-.15),(-4.5,-.3),(-5.5,-.45),(-6.5,-.6)]):
+    for i,(y,expected_z) in enumerate([(-3.5,-.55),(-4.5,-1.1),(-5.5,-1.65),(-6.5,-2.2)]):
         step_hit,step_z=downward_hit(8,y,1)
         if step_hit!=f"site_front_step_{i}" or abs(step_z-expected_z)>.02:
             raise AssertionError(f"Front step {i} is covered: {step_hit} at {step_z:.3f}ft")
+        left=4-i*.5; right=12+i*.5
+        for x in (left-.2,left+.2,right-.2,right+.2):
+            edge_hit,_=downward_hit(x,y,1)
+            if edge_hit not in {f"site_front_step_{i}","site_front_step_bank_left","site_front_step_bank_right"}:
+                raise AssertionError(f"Front stair terrain gap at ({x}, {y}): {edge_hit}")
+    for i,(y,z,expected) in enumerate([
+        (-3.2,-.275,"site_front_porch_slab_face"),
+        (-4.2,-.825,"site_front_step_0"),
+        (-5.2,-1.375,"site_front_step_1"),
+        (-6.2,-1.925,"site_front_step_2"),
+        (-7.2,-2.475,"site_front_step_3"),
+    ]):
+        riser_hit,_=forward_hit(8,y,z)
+        if riser_hit!=expected:
+            raise AssertionError(f"Front rise {i} is open: {riser_hit}")
     walk_hit,walk_z=downward_hit(13,-7.5,1)
-    if walk_hit!="site_front_walk" or abs(walk_z+.6)>.02:
+    if walk_hit not in {"site_front_walk","site_ground"} or abs(walk_z+2.75)>.02:
         raise AssertionError(f"Front approach misses lower grade: {walk_hit} at {walk_z:.3f}ft")
     if any(obj.name.startswith("site_") and not ({c.name for c in obj.users_collection} & {"SITE_LAYOUT","SITE_ROOFS","SITE_LAYOUT_CAMERAS"}) for obj in bpy.data.objects):
         raise AssertionError("A site-owned object escaped its owned collections")

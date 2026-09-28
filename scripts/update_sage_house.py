@@ -134,6 +134,23 @@ def stairs(collection, ground, upper, wood):
         wall_piece(collection,f"layout_stair_guard_{index}",a,b,UPPER_Z,UPPER_Z+guard_height,.12,upper,wood)
 
 
+def deck_guard(collection, deck, upper, wood):
+    """Build the photo-supported guard around the side and inferred rear platform."""
+    outer_y=deck[4][1]
+    segments=[("outer_x",deck[3],deck[4]),("outer_right",deck[4],(18,outer_y)),("outer_left",(14,outer_y),deck[5]),("side",deck[5],deck[0])]
+    for index,a,b in segments:
+        direction=Vector(b)-Vector(a)
+        length=direction.length
+        direction.normalize()
+        for suffix,z1,z2 in [("lower",10.45,10.72),("lower_middle",11.35,11.62),("upper_middle",12.25,12.52),("top",13.15,13.5)]:
+            rail=wall_piece(collection,f"layout_deck_guard_{index}_{suffix}",a,b,z1,z2,.18,upper,wood)
+            rail["source"]="A2.1 side deck; rear platform inferred from photos 18, 19, 21, 26 and deck.JPG"
+        count=max(2,round(length/5))
+        for post_index in range(count+1):
+            point=Vector(a)+direction*(length*post_index/count)
+            wall_piece(collection,f"layout_deck_guard_{index}_post_{post_index}",point-direction*.11,point+direction*.11,UPPER_Z,UPPER_Z+3.5,.28,upper,wood)
+
+
 def main():
     if not bpy.data.filepath:
         raise RuntimeError("Load the saved master before applying the house layout")
@@ -147,7 +164,7 @@ def main():
     upper = empty(collection,"upper_floor")
     upper["floor_elevation_m"] = UPPER_Z * .3048
     upper["source_height"] = "A3.0: 9ft ground clear + 1ft floor assembly"
-    floor_material=material("layout_floor",(.34,.29,.23)); wall_material=material("layout_wall",(.76,.74,.69)); wood=material("layout_wood",(.25,.13,.06))
+    floor_material=material("layout_floor",(.34,.29,.23)); wall_material=material("layout_wall",(.76,.74,.69)); wood=material("layout_wood",(.25,.13,.06)); deck_wood=material("main_house_deck_wood",(.38,.10,.055))
     for name,outline in GROUND_ROOMS.items(): room(collection,ground,name,outline,0,GROUND_HEIGHT,floor_material,wall_material,ceiling=name != "foyer")
     for name,outline in UPPER_ROOMS.items(): room(collection,upper,name,outline,UPPER_Z,UPPER_HEIGHT,floor_material,wall_material,ceiling=name != "deck")
     floor_assembly(collection,upper,wall_material)
@@ -178,15 +195,9 @@ def main():
         prism(collection,f"layout_utility_access_step_{index}",[(a[0],a[1]),(b[0],a[1]),(b[0],b[1]),(a[0],b[1])],top-.16,top,utility,wood)
     # Rear and side deck guard; deck floor itself is the `deck` room polygon.
     deck=UPPER_ROOMS["deck"]
-    for index,(a,b) in enumerate(zip(deck,deck[1:]+deck[:1])):
-        if index in {3,4,5}:
-            if index==3:
-                continue
-            if index==4:
-                a=(25.5,a[1])
-            guard=wall_piece(collection,f"layout_deck_guard_{index}",a,b,UPPER_Z,UPPER_Z+3.5,.12,upper,wood)
-            if index==4:
-                guard["source"]="A2.1 deck outline; photo 19 stair opening"
+    deck_floor=bpy.data.objects["layout_deck_floor"]
+    deck_floor.data.materials.clear(); deck_floor.data.materials.append(deck_wood)
+    deck_guard(collection,deck,upper,deck_wood)
     carve_stair_window_band(collection)
     for obj in bpy.data.objects:
         if obj.name.startswith("C_kitchen_context_"):

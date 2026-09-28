@@ -91,7 +91,8 @@ The neutral inter-floor assembly fills the structural band from 9 feet 0.96 inch
 Gray dashed demolition walls and closets are omitted.
 The solid linen west partition follows A2.1 while the demolished vestibule partition below it remains absent.
 The staircase follows the two source footprints with an inferred count of eight risers per flight.
-The rear deck follows the source-visible side and rear outline, while its outer depth remains inferred because the drawing does not print it.
+The A2.1 side deck remains drawing-based.
+The rear platform is inferred at approximately 19 feet wide by 8 feet deep from A2.0 post marks and photos 18, 19, 21, 26 and deck.JPG because A2.1 does not draw or dimension its outer edge.
 The recessed front facade, two entrance door openings, and their floor thresholds meet the site-owned porch and inferred exterior entrance steps.
 Rear utility-basement access is represented by three visible exterior context steps outside BED2, with inferred half-foot drops and no basement floor.
 The full-house export is separate from the two-room website contract and intentionally carries no browser metadata file.
@@ -107,6 +108,23 @@ Two first-floor shed roofs follow A2.2's south-side dining and rear footprints; 
 A3.0 and A3.1 keep the rear pitch-break eave above the 18-foot-6-inch upper ceiling; its undimensioned junction height is inferred from those elevations.
 A3.0's height chain places the main ridge near 28 feet 2 inches above the saved main finished-floor datum; the printed overall chains differ by about 1.5 inches.
 The garage height and roof pitch, parking-stall depth, landscape surface boundaries, front step heights, and rear deck-stair tread dimensions remain inferred where the supplied drawings do not print them.
-The recessed front porch meets the fixed main finished-floor datum, while its four treads descend to an inferred local grade 0.6 feet below that datum.
+The recessed front porch meets the fixed main finished-floor datum, while four intermediate treads form five inferred 6.6-inch rises to a local approach 2.75 feet below that datum.
 The rear exterior stair arrangement follows listing photographs 18 through 21, and the garage gable character follows photograph 22.
 `SITE_LAYOUT`, `SITE_ROOFS`, and `SITE_LAYOUT_CAMERAS` are replaceable site-only collections outside the existing `EXPORT` contract.
+
+## Front and rear exterior details
+
+The main-house exterior uses separate off-white stucco, blue-green trim, terracotta, dark metal, and red-brown deck materials so detached-unit and garage finishes remain unchanged.
+The front detail follows `photos/house/front.JPG` and listing photographs 14 through 17 for the upper sash divisions, glass-block grid, small gable vent, porch roof edge and ridge cap, rounded porch header ends, entry screens, and stair handrails.
+The rear detail follows listing photographs 18 through 21 and 26 for the open horizontal deck guard, visible fascia and joists, posts and diagonal braces, stair rails, stringers, and blue-green window treatment.
+A3.1 marks rear window 207.2 as new, but the owner confirmed it was not built and listing photographs 18 and 21 show blank finished wall at that position.
+The model omits 207.2 while retaining the existing 207.3 library window and the remaining drawing-controlled apertures.
+A3.1 omits the photographed rear platform and stair.
+A2.1's 25-foot-5-inch line is a rear-wall dimension rather than a deck edge; A2.1 governs the side deck while A2.0 post marks and photographs govern the inferred rear platform and stair.
+The lower stair flight remains parallel to the rear facade and descends toward model west, but its run, member sizes, rail spacing, and support positions are inferred from the photographs.
+The local ignored gallery at `renders/sage-exterior-details/index.html` pairs private source copies with named model cameras for the front, porch, rear stair, and rear support views.
+The refined front approach retains the fixed finished-floor datum and uses five photographed rises over an inferred 2.75-foot local drop; A3.0 does not print the local porch-grade dimension.
+The front comparison cameras start from the listing photographs' reported 17-millimeter lens and 3:2 frame, then use facade edges and openings to set position and aim.
+The EEVEE comparison lighting is transient and disables saved interior lights without changing the master world or interior lighting setup.
+Exterior window glazing is recessed behind deeper blue-green casing, while the protected living-room wall and window payload remain unchanged behind a site-owned stucco skin.
+Rear deck and landing guards use four horizontal boards, and the stair uses inferred deep rectangular stringer boards with joined rail members.

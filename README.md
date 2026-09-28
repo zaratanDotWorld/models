@@ -5,17 +5,17 @@ Editable 3D reconstructions of Zaratan's coliving houses, starting with Sage Hou
 The experiment is to determine how realistically an AI agent can reconstruct an existing house from a fixed collection of still photographs and floor plans.
 Additional photography, video, and scanning are outside the initial scope.
 
-Blender is the planned authoring environment.
+Blender is the authoring environment.
 The [Zaratan website](https://github.com/zaratanDotWorld/website) remains responsible for the Three.js walkthrough used by prospective residents.
 
 ## Status
 
-This repository contains the initial product and architecture specifications and the source mapping for the first reconstruction.
-Blender scene construction and the export pipeline are in progress.
-The existing Sage prototype lives in the website repository.
+The editable Sage model contains both main-house floors, a full-site architectural layout, and reviewed front and rear exterior details.
+The master and required textures are published in the [Sage asset Release](https://github.com/zaratanDotWorld/models/releases/tag/sage-assets), with the current and previous bundles retained.
+The [next pass](features/02-sage-exterior/plan.md) completes the remaining exterior before interior architecture; further furnishing work is deferred.
 
 The first feature is scoped as a detailed reconstruction of the connected living and dining rooms, including photo comparisons and a two-room website preview.
-Its [specification](features/01-sage-living-dining/spec.md) and [implementation plan](features/01-sage-living-dining/plan.md) are active.
+Its [specification](features/01-sage-living-dining/spec.md) and [implementation plan](features/01-sage-living-dining/plan.md) remain active, with browser-preview work outstanding.
 
 ## Documentation and development
 
@@ -83,15 +83,15 @@ git lfs version
 On macOS, Blender background commands may need permission to access the Metal device during startup.
 Git LFS is configured for this repository with `git lfs install --local`.
 The architectural PDF extracts under `properties/sage/plans/` use LFS.
-The migration sequence below keeps the master `.blend` file and derived texture binaries LFS-tracked until remote recovery succeeds.
+The master `.blend` file and derived texture binaries are ignored locally and recovered from the asset Release.
 Generated `renders/` and `exports/` remain ignored.
 
 ### Sage asset bundles
 
-The Sage master, its required texture binaries, and `.local/sage-furniture-unbatched.glb` can be stored together in the `sage-assets` prerelease in `zaratanDotWorld/models`.
+The Sage master, its required texture binaries, and `.local/sage-furniture-unbatched.glb` are stored together in the `sage-assets` prerelease in `zaratanDotWorld/models`.
 That release is excluded from GitHub's normal Latest release selection.
 The checked-in `properties/sage/assets.json` records the last successfully published bundle and one previous bundle.
-The manifest must name a remotely verified current bundle before the master and textures are removed from Git tracking.
+Original photographs and complete drawing sets are excluded from these bundles.
 
 Build a candidate after editing and run a complete local recovery check in an ignored directory:
 
@@ -128,21 +128,9 @@ python3 scripts/sage_assets.py fetch --bundle previous --destination .local/sage
 
 Run `fetch` on a fresh checkout before opening the Sage master.
 
-For the first publication, publish the preserved pre-site candidate and then the separately packed current candidate:
-
-```sh
-python3 scripts/sage_assets.py publish --candidate .local/sage-assets/candidate.json
-python3 scripts/sage_assets.py publish --candidate .local/sage-assets-current/candidate.json
-python3 scripts/sage_assets.py fetch --destination .local/sage-assets/remote-check
-python3 scripts/sage_assets.py fetch --bundle previous --destination .local/sage-assets/remote-previous-check
-```
-
-Run the matching isolated Blender checks against both remote recoveries.
-Compare the recovered payload hashes before changing Git tracking.
-Only after both remote recoveries succeed, preserve the working files while removing the master and texture binaries from Git, remove only their LFS rules from `.gitattributes`, and add those binary paths to `.gitignore`.
-Keep Git LFS installed for the public architectural PDF extracts.
-This migration does not rewrite existing Git or LFS history.
-Historical revisions still require Git LFS.
+The transition from Git LFS to Release bundles is complete for the master and textures.
+Public architectural PDF extracts still use Git LFS, as do historical model revisions.
+Existing Git and LFS history has not been rewritten.
 
 Create the Sage master once from the repository root:
 
