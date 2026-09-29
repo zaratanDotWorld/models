@@ -12,8 +12,8 @@ The [Zaratan website](https://github.com/zaratanDotWorld/website) remains respon
 
 The editable Sage model contains both main-house floors, a full-site architectural layout, and reviewed front and rear exterior details.
 The master and required textures are published in the [Sage asset Release](https://github.com/zaratanDotWorld/models/releases/tag/sage-assets), with the current and previous bundles retained.
-The [exterior](features/02-sage-exterior/plan.md) is implemented, verified and accepted by the owner; the updated asset publication is pending.
-Interior architecture follows exterior acceptance; further furnishing work is deferred.
+The [exterior](features/02-sage-exterior/plan.md) is complete, accepted by the owner and published in the current asset bundle.
+Interior architecture is next; further furnishing work is deferred.
 
 The first feature is scoped as a detailed reconstruction of the connected living and dining rooms, including photo comparisons and a two-room website preview.
 Its [specification](features/01-sage-living-dining/spec.md) and [implementation plan](features/01-sage-living-dining/plan.md) remain active, with browser-preview work outstanding.

@@ -1,12 +1,13 @@
 # Sage exterior completion plan
 
-Status: active; exterior implementation is verified and accepted by the owner, with publication pending.
+Status: complete; the owner accepted the exterior and its verified asset bundle was published on 2026-09-29.
 Scope and acceptance are in the [specification](spec.md).
 
 ## Resume
 
 The owner accepted the exterior comparison gallery at `renders/sage-exterior-completion/index.html` on 2026-09-29.
-The current review and verification handoff is `.development-workflow-run.rear-patio/handoff.md`.
+The checkpoint handoff is `.development-workflow-run.exterior-checkpoint/handoff.md`.
+The completed patio review evidence remains in `.development-workflow-run.rear-patio/`.
 Keep the user-selected `gpt-5.6-sol` implementer and independent `gpt-6-astra` reviewers; do not silently substitute models.
 Read the current [asset manifest](../../properties/sage/assets.json) and [reconstruction notes](../../properties/sage/notes.md).
 On a fresh checkout, run `python3 scripts/sage_assets.py fetch` before opening the master.
@@ -34,7 +35,7 @@ These ignored outputs supplement the committed notes and scripts and can be rege
 - [x] Regenerate comparisons and exports, and verify preservation and repeatability.
 - [x] Add the omitted covered rear patio and reconcile its utility enclosure and yard access against the current plan and older photographs.
 - [x] Complete owner visual acceptance.
-- [ ] Publish the recoverable asset bundle and checkpoint the source changes.
+- [x] Publish the recoverable asset bundle and checkpoint the source changes.
 
 The gallery includes six source/model pairs and north, south, roof, courtyard circulation, and rear-patio diagnostics.
 Native checks, exported geometry and materials, isolated bundle recovery, and repeated site-only and house-plus-site builds are verified locally.
@@ -43,7 +44,8 @@ The owner's grade correction removes the invented front slope and extends the ho
 Paths, rear access and support posts meet that ground, while the detached unit and garage retain their geometry at the corrected elevation.
 The covered rear patio now includes its raised slab, rounded stucco openings, metal guard, concrete side steps and adjacent utility enclosure.
 The current plan governs rear apertures; older photographs establish the patio form and finishes.
-The published asset manifest still describes the previous Release; the current candidate is local.
+The published asset manifest now recovers the accepted exterior master, SHA-256 `d9fc8f36062097f201f1be825ea46c00103883d7ab4e4067cf88b1e03263adc2`.
+The release retains this bundle and the previously published bundle.
 
-After exterior acceptance, queue interior architecture around stairs, circulation, openings, and fixed finishes before furnishings.
+Interior architecture around stairs, circulation, openings, and fixed finishes is the next phase, before furnishings.
 The original two-room feature's unfinished browser work remains recorded in its [plan](../01-sage-living-dining/plan.md).

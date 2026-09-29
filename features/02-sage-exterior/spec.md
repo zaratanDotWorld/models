@@ -1,6 +1,6 @@
 # Sage exterior completion
 
-Status: active; exterior implementation is verified and accepted by the owner, with publication pending.
+Status: complete; the owner accepted the exterior and its verified asset bundle was published on 2026-09-29.
 
 Complete the building and site exterior before refining interior architecture.
 Use architectural drawings for dimensions and organization, then photographs for the built condition and visible details.
