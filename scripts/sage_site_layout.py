@@ -1,6 +1,7 @@
 """Measured and explicitly inferred constants for the Sage site reconstruction."""
 
 FT = 0.3048
+SITE_GRADE = -2.75
 
 # A1.0 longitudinal chain, measured from the street property line in model +Y.
 PARCEL_WIDTH = 50.0

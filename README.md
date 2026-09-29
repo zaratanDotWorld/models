@@ -12,7 +12,8 @@ The [Zaratan website](https://github.com/zaratanDotWorld/website) remains respon
 
 The editable Sage model contains both main-house floors, a full-site architectural layout, and reviewed front and rear exterior details.
 The master and required textures are published in the [Sage asset Release](https://github.com/zaratanDotWorld/models/releases/tag/sage-assets), with the current and previous bundles retained.
-The [next pass](features/02-sage-exterior/plan.md) completes the remaining exterior before interior architecture; further furnishing work is deferred.
+The [exterior](features/02-sage-exterior/plan.md) is implemented, verified and accepted by the owner; the updated asset publication is pending.
+Interior architecture follows exterior acceptance; further furnishing work is deferred.
 
 The first feature is scoped as a detailed reconstruction of the connected living and dining rooms, including photo comparisons and a two-room website preview.
 Its [specification](features/01-sage-living-dining/spec.md) and [implementation plan](features/01-sage-living-dining/plan.md) remain active, with browser-preview work outstanding.
@@ -213,11 +214,13 @@ Run its focused check, evidence render, and local inspection export with:
 ```sh
 "$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/check_sage_site.py
 "$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/render_sage_site.py
+SAGE_REFERENCE_ROOT=/path/to/Sage "$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/render_sage_exterior_completion.py
 "$BLENDER_BIN" --background properties/sage/sage.blend --python-exit-code 1 --python scripts/export_sage_site.py
 "$BLENDER_BIN" --background --factory-startup --python-exit-code 1 --python scripts/check_sage_site_glb.py -- exports/sage-site/scene.glb
 ```
 
-The gallery is written to `renders/sage-site-layout/`, and the separate site GLB is written to `exports/sage-site/scene.glb`.
+The layout gallery is written to `renders/sage-site-layout/`, and the exterior-completion comparisons are written to `renders/sage-exterior-completion/`.
+The separate site GLB is written to `exports/sage-site/scene.glb`.
 Neither changes the two-room website export contract.
 
 ## Intended workflow

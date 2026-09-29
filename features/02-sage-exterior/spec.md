@@ -1,6 +1,6 @@
 # Sage exterior completion
 
-Status: queued; design review and implementation have not started.
+Status: active; exterior implementation is verified and accepted by the owner, with publication pending.
 
 Complete the building and site exterior before refining interior architecture.
 Use architectural drawings for dimensions and organization, then photographs for the built condition and visible details.

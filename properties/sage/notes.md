@@ -94,7 +94,7 @@ The staircase follows the two source footprints with an inferred count of eight 
 The A2.1 side deck remains drawing-based.
 The rear platform is inferred at approximately 19 feet wide by 8 feet deep from A2.0 post marks and photos 18, 19, 21, 26 and deck.JPG because A2.1 does not draw or dimension its outer edge.
 The recessed front facade, two entrance door openings, and their floor thresholds meet the site-owned porch and inferred exterior entrance steps.
-Rear utility-basement access is represented by three visible exterior context steps outside BED2, with inferred half-foot drops and no basement floor.
+The plan-supported rear utility enclosure contains three protected inferred context steps and has no modeled basement floor.
 The full-house export is separate from the two-room website contract and intentionally carries no browser metadata file.
 The source/model gallery at `renders/sage-house-layout/index.html` pairs the complete right-hand plan crops with labeled model plans and shows both front and rear cutaways.
 
@@ -108,9 +108,23 @@ Two first-floor shed roofs follow A2.2's south-side dining and rear footprints; 
 A3.0 and A3.1 keep the rear pitch-break eave above the 18-foot-6-inch upper ceiling; its undimensioned junction height is inferred from those elevations.
 A3.0's height chain places the main ridge near 28 feet 2 inches above the saved main finished-floor datum; the printed overall chains differ by about 1.5 inches.
 The garage height and roof pitch, parking-stall depth, landscape surface boundaries, front step heights, and rear deck-stair tread dimensions remain inferred where the supplied drawings do not print them.
-The recessed front porch meets the fixed main finished-floor datum, while four intermediate treads form five inferred 6.6-inch rises to a local approach 2.75 feet below that datum.
+The owner confirmed that the ground remains roughly level around the house and connected site at the front approach datum.
+The modeled grade is 2.75 feet below the fixed main finished floor, estimated from the photographed front rises because A3.0 does not print that dimension.
+The recessed front porch meets the fixed main finished-floor datum, while four intermediate treads form five inferred 6.6-inch rises from that grade.
 The rear exterior stair arrangement follows listing photographs 18 through 21, and the garage gable character follows photograph 22.
 `SITE_LAYOUT`, `SITE_ROOFS`, and `SITE_LAYOUT_CAMERAS` are replaceable site-only collections outside the existing `EXPORT` contract.
+
+## Exterior completion
+
+The side elevations use plan-controlled opening positions with shallow site-owned stucco skins, projecting blue-green casing, recessed exterior glazing, and corner returns.
+The skins cover exposed detailed-room finish surfaces without changing the preserved living and dining geometry.
+The two photographed south-side shed roofs retain their plan footprints and use terracotta edge material observed in renovation photograph `IMG_5058.JPG`.
+The main, detached-unit, and garage roof assemblies include soffits, fascia or rake trim, and wall-to-roof closures at their visible perimeter joins.
+The detached-unit shell retains A2.3's current openings and dimensions while photographs support its white stucco, cyan trim, light door leaf, white exposed eaves, and gable louver character.
+Listing photograph 22 and the owner's orientation confirmation support the garage's two narrow courtyard-facing doors, vertical gable-front siding, horizontal side siding, triangular louver, and white exposed eaves.
+Garage height, louver dimensions, siding spacing, eave-member spacing, roof thickness, and paving-edge elevations remain estimates from the photographs.
+Four perimeter walk strips document detached-unit access while preserving the plan-controlled building and parking footprints.
+The source/model gallery at `renders/sage-exterior-completion/index.html` distinguishes pre-renovation opening photographs from current plan-controlled apertures and includes north, south, roof, and courtyard circulation diagnostics.
 
 ## Front and rear exterior details
 
@@ -119,11 +133,15 @@ The front detail follows `photos/house/front.JPG` and listing photographs 14 thr
 The rear detail follows listing photographs 18 through 21 and 26 for the open horizontal deck guard, visible fascia and joists, posts and diagonal braces, stair rails, stringers, and blue-green window treatment.
 A3.1 marks rear window 207.2 as new, but the owner confirmed it was not built and listing photographs 18 and 21 show blank finished wall at that position.
 The model omits 207.2 while retaining the existing 207.3 library window and the remaining drawing-controlled apertures.
-A3.1 omits the photographed rear platform and stair.
-A2.1's 25-foot-5-inch line is a rear-wall dimension rather than a deck edge; A2.1 governs the side deck while A2.0 post marks and photographs govern the inferred rear platform and stair.
+A3.1 omits the photographed covered ground-floor patio beneath the rear deck.
+The complete current ground plan sets its approximately 4-foot projection, utility enclosure, pier line, and south-side access, while older photographs 18, 19, and 21 establish its raised slab, rounded stucco openings, metal guard, and concrete steps.
+Those older photographs do not govern the current rear apertures.
+A0.5 schedules the utility door at 6 feet 8 inches high, while the ground plan controls its 2-foot-6-inch width.
+Patio header height, opening radii, pier thickness, guard spacing, and stair dimensions remain estimated from the photographs.
+A2.1's 25-foot-5-inch line is a rear-wall dimension rather than a deck edge; A2.1 governs the side deck while A2.0 post marks and photographs govern the inferred upper rear platform and stair.
 The lower stair flight remains parallel to the rear facade and descends toward model west, but its run, member sizes, rail spacing, and support positions are inferred from the photographs.
 The local ignored gallery at `renders/sage-exterior-details/index.html` pairs private source copies with named model cameras for the front, porch, rear stair, and rear support views.
-The refined front approach retains the fixed finished-floor datum and uses five photographed rises over an inferred 2.75-foot local drop; A3.0 does not print the local porch-grade dimension.
+The refined front approach retains the fixed finished-floor datum and uses five photographed rises from the owner-confirmed surrounding grade; A3.0 does not print the porch-grade dimension.
 The front comparison cameras start from the listing photographs' reported 17-millimeter lens and 3:2 frame, then use facade edges and openings to set position and aim.
 The EEVEE comparison lighting is transient and disables saved interior lights without changing the master world or interior lighting setup.
 Exterior window glazing is recessed behind deeper blue-green casing, while the protected living-room wall and window payload remain unchanged behind a site-owned stucco skin.

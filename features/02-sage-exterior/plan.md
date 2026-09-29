@@ -1,11 +1,12 @@
 # Sage exterior completion plan
 
-Status: queued for the next session after `/compact`.
+Status: active; exterior implementation is verified and accepted by the owner, with publication pending.
 Scope and acceptance are in the [specification](spec.md).
 
 ## Resume
 
-Use `/development-workflow` to inspect the references and review the bounded design before implementation.
+The owner accepted the exterior comparison gallery at `renders/sage-exterior-completion/index.html` on 2026-09-29.
+The current review and verification handoff is `.development-workflow-run.rear-patio/handoff.md`.
 Keep the user-selected `gpt-5.6-sol` implementer and independent `gpt-6-astra` reviewers; do not silently substitute models.
 Read the current [asset manifest](../../properties/sage/assets.json) and [reconstruction notes](../../properties/sage/notes.md).
 On a fresh checkout, run `python3 scripts/sage_assets.py fetch` before opening the master.
@@ -25,12 +26,24 @@ These ignored outputs supplement the committed notes and scripts and can be rege
 
 ## Sequence
 
-- [ ] Inventory side-elevation, roof, detached-unit, garage, and ground references; identify supported changes and important unknowns.
-- [ ] Review the design and establish preservation snapshots before editing.
-- [ ] Refine main-house sides and roof connections, then compare against the front/rear baseline.
-- [ ] Refine the detached unit and garage, retaining plan-controlled placement and dimensions.
-- [ ] Reconcile paths, grade transitions, bases, and access across the full site.
-- [ ] Regenerate comparisons and exports, verify preservation and repeatability, and complete independent review and owner review.
+- [x] Inventory side-elevation, roof, detached-unit, garage, and ground references; identify supported changes and important unknowns.
+- [x] Review the design and establish preservation snapshots before editing.
+- [x] Refine main-house sides and roof connections, then compare against the front/rear baseline.
+- [x] Refine the detached unit and garage, retaining plan-controlled placement and dimensions.
+- [x] Reconcile paths, grade transitions, bases, and access across the full site.
+- [x] Regenerate comparisons and exports, and verify preservation and repeatability.
+- [x] Add the omitted covered rear patio and reconcile its utility enclosure and yard access against the current plan and older photographs.
+- [x] Complete owner visual acceptance.
+- [ ] Publish the recoverable asset bundle and checkpoint the source changes.
+
+The gallery includes six source/model pairs and north, south, roof, courtyard circulation, and rear-patio diagnostics.
+Native checks, exported geometry and materials, isolated bundle recovery, and repeated site-only and house-plus-site builds are verified locally.
+Detailed interiors, the canonical house layout, and the main-house windows and roofs remain preserved.
+The owner's grade correction removes the invented front slope and extends the house base to roughly level ground around the site.
+Paths, rear access and support posts meet that ground, while the detached unit and garage retain their geometry at the corrected elevation.
+The covered rear patio now includes its raised slab, rounded stucco openings, metal guard, concrete side steps and adjacent utility enclosure.
+The current plan governs rear apertures; older photographs establish the patio form and finishes.
+The published asset manifest still describes the previous Release; the current candidate is local.
 
 After exterior acceptance, queue interior architecture around stairs, circulation, openings, and fixed finishes before furnishings.
 The original two-room feature's unfinished browser work remains recorded in its [plan](../01-sage-living-dining/plan.md).
